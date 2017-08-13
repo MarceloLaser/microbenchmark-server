@@ -52,6 +52,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+app.get('/', function (req, res) {
+	res.render('index');
+});
+
 module.exports = app;
 
 app.listen(process.env.PORT, function(){
