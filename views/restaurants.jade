@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1.
+        Restaurants
+    ul
+        each restaurant, i in restaurants
+            li
+                a(href="mailto:#{restaurant.address}")= restaurant.name
