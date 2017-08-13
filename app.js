@@ -14,12 +14,12 @@ var users = require('./routes/users');
 
 var app = express();
 
-var server_port = process.env.PORT || 5000;
+var server_port = process.env.PORT || 3000;
 app.set('port', server_port);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -62,6 +62,6 @@ app.get('/', function (req, res) {
 
 module.exports = app;
 
-app.listen(process.env.PORT, function(){
-   console.log('MBM test site port '+port+'!');
+app.listen(app.get('port'), function(){
+   console.log('MBM test site port '+app.get('port')+'!');
 });
