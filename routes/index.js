@@ -17,4 +17,20 @@ router.get('/restaurants', function(req, res) {
   });
 });
 
+/* GET by ID */
+router.get('/restaurants/:identifier', function(req, res){
+  var db = req.db;
+  var collection = db.get('restaurants');
+  collection.findOne({ _id: req.params.identifier }, {}, function(err, docs) {
+		if (err){
+			res.status(400).send();
+		}
+		else{
+      res.render('restaurants', {
+        "restaurants" : docs
+      });
+			//res.json(docs);
+		})
+});
+
 module.exports = router;
