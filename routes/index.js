@@ -24,6 +24,7 @@ router.get('/restaurants/:identifier', function(req, res){
   var collection = db.get('restaurants');
   collection.findOne({ _id: res.params.identifier }, {}, function(err, docs) {
 		if (err){
+      res.render("i hate io");
 			res.status(400).send();
 		}
 		else{
