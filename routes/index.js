@@ -22,7 +22,7 @@ router.get('/restaurants/:identifier', function(req, res){
   var db = req.db;
   var collection = db.get('restaurants');
   var rid = req.params.identifier;
-  collection.find({ "restaurant_id" : rid }, function(err, docs) {
+  collection.find({ "restaurant_id" : rid }, { fields: { _id: 0 } }, function(err, docs) {
 		if (err){
       //res.render("i hate io");
 			res.status(400).send(err);
@@ -42,7 +42,7 @@ router.get('/restaurants', function(req, res){
   var collection = db.get('restaurants');
   var name = req.query.name;
   var address = req.query.address;
-  collection.find({ "name" : { "$regex" : name }, "address.street" : { "$regex" : address } }, function(err, docs){
+  collection.find({ "name" : { "$regex" : name }, "address.street" : { "$regex" : address } }, { fields: { _id: 0 } }, function(err, docs){
     if (err){
       //res.render("i hate io");
 			res.status(400).send(err);
