@@ -30,7 +30,8 @@ router.get('/restaurants/:identifier', function(req, res){
         "restaurants" : docs
       });
 			//res.json(docs);
-		})
+		}
+  });
 });
 
 module.exports = router;
