@@ -20,9 +20,9 @@ router.get('/restaurants', function(req, res) {
 /* GET by ID */
 router.get('/restaurants/:identifier', function(req, res){
   var db = req.db;
-  var rid = { "$oid": res.params.identifier };
+  //var rid = { "$oid": res.params.identifier };
   var collection = db.get('restaurants');
-  collection.findOne({ _id: rid }, {}, function(err, docs) {
+  collection.findOne({ _id: res.params.identifier }, {}, function(err, docs) {
 		if (err){
 			res.status(400).send();
 		}
