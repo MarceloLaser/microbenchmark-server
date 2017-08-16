@@ -28,10 +28,10 @@ router.get('/restaurants/:identifier', function(req, res){
 			res.status(400).send(err);
 		}
 		else{
-      res.render('restaurants', {
-        "restaurants" : docs
-      });
-			//res.json(docs);
+      // res.render('restaurants', {
+      //   "restaurants" : docs
+      // });
+			res.json(docs);
 		}
   });
 });
